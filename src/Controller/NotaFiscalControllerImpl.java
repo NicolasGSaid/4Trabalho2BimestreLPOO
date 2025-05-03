@@ -44,6 +44,16 @@ public class NotaFiscalControllerImpl implements NotaFiscalController {
     }
 
     @Override
+    public void alterarCalculoISSQN(String numeroNfe, CalculoISSQN novoCalculoISSQN) {
+        for (NotaFiscal nota : notasFiscais) {
+            if (nota.getNumero().equals(numeroNfe)) {
+                nota.setCalculoISSQN(novoCalculoISSQN);
+                break;
+            }
+        }
+    }
+
+    @Override
     public void alterarDadosAdicionais(String numeroNfe, String novaNaturezaOperacao, String novoProtocolo) {
         for (NotaFiscal nota : notasFiscais) {
             if (nota.getNumero().equals(numeroNfe)) {
@@ -101,9 +111,16 @@ public class NotaFiscalControllerImpl implements NotaFiscalController {
         }
         return resultado;
     }
-
+    
     @Override
-    public void alterarCalculoISSQN(String numeroNfe, CalculoISSQN novoCalculoISSQN) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<NotaFiscal> consultarPorNumeroIntervalo(String numeroInicial, String numeroFinal) {
+        List<NotaFiscal> resultado = new ArrayList<>();
+
+    for (NotaFiscal nota : notasFiscais) {
+        if (nota.getNumero().compareTo(numeroInicial) >= 0 && nota.getNumero().compareTo(numeroFinal) <= 0) {
+            resultado.add(nota);
+        }
+    }
+        return resultado;
     }
 }
