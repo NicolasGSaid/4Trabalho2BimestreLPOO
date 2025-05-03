@@ -101,4 +101,9 @@ public class NotaFiscalControllerImpl implements NotaFiscalController {
         }
         return resultado;
     }
+
+    @Override
+    public void alterarCalculoISSQN(String numeroNfe, CalculoISSQN novoCalculoISSQN) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
