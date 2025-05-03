@@ -1,4 +1,3 @@
-
 package Model;
 
 import java.util.List;
@@ -182,7 +181,18 @@ public class NotaFiscal {
         this.dadosAdicionais = dadosAdicionais;
     }
 
-    
+    @Override
+    public String toString() {
+        return "NotaFiscal {" +
+               "Número='" + numero + '\'' +
+               ", Série='" + serie + '\'' +
+               ", Data de Emissão='" + dataEmissao + '\'' +
+               ", Data de Saída='" + dataSaida + '\'' +
+               ", Protocolo='" + protocolo + '\'' +
+               ", Natureza da Operação='" + naturezaOperacao + '\'' +
+               ", Razão Social do Destinatário='" + (destinatario != null ? destinatario.getNome() : "Não Informado") + '\'' +
+               ", CNPJ/CPF do Destinatário='" + (destinatario != null ? destinatario.getCnpjCpf() : "Não Informado") + '\'' +
+               ", Valor Total='" + valorTotalNota + '\'' +
+               '}';
+    }
 }
-
-

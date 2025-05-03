@@ -55,6 +55,7 @@ public class Main {
 
     private static void incluirNotaFiscal() {
         System.out.println("Incluir NF-e:");
+
         System.out.print("Número: ");
         String numero = scanner.nextLine();
 
@@ -63,6 +64,12 @@ public class Main {
 
         System.out.print("Data de Emissão: ");
         String dataEmissao = scanner.nextLine();
+
+        System.out.print("Data de Saída: ");
+        String dataSaida = scanner.nextLine();
+
+        System.out.print("Protocolo: ");
+        String protocolo = scanner.nextLine();
 
         System.out.print("Natureza da Operação: ");
         String naturezaOperacao = scanner.nextLine();
@@ -73,15 +80,29 @@ public class Main {
         System.out.print("CNPJ/CPF do Destinatário: ");
         String cnpjCpf = scanner.nextLine();
 
+        System.out.print("Valor Total dos Produtos: ");
+        double valorTotalProdutos = scanner.nextDouble();
+
+        System.out.print("Valor Total dos Impostos: ");
+        double valorTotalImpostos = scanner.nextDouble();
+
+        scanner.nextLine();
+
+        
         Destinatario destinatario = new Destinatario(razaoSocial, "", "", "", "", cnpjCpf, "");
 
+      
         NotaFiscal notaFiscal = new NotaFiscal();
         notaFiscal.setNumero(numero);
         notaFiscal.setSerie(serie);
         notaFiscal.setDataEmissao(dataEmissao);
+        notaFiscal.setDataSaida(dataSaida);
+        notaFiscal.setProtocolo(protocolo);
         notaFiscal.setNaturezaOperacao(naturezaOperacao);
         notaFiscal.setDestinatario(destinatario);
+        notaFiscal.calcularTotais();
 
+        
         controller.incluirNotaFiscal(notaFiscal);
         System.out.println("NF-e incluída com sucesso!");
     }
