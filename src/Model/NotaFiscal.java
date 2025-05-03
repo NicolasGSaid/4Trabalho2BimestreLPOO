@@ -1,0 +1,103 @@
+
+package Model;
+
+import java.util.List;
+import java.util.ArrayList;
+
+public class NotaFiscal {
+
+    private String chaveAcesso;
+    private String numero;
+    private String serie;
+    private String dataEmissao;
+    private String dataSaida;
+    private String protocolo;
+    private String naturezaOperacao;
+
+    private Destinatario destinatario;
+    private Transportador transportador;
+    private List<ProdutoServico> produtos;
+    private CalculoImposto calculoImposto;
+    private CalculoISSQN calculoISSQN;
+    private DadosAdicionais dadosAdicionais;
+
+    public NotaFiscal() {
+        this.produtos = new ArrayList<>();     
+    }
+
+    public NotaFiscal(String chaveAcesso, String numero, String serie, String dataEmissao,
+                      String dataSaida, String protocolo, String naturezaOperacao,
+                      List<ProdutoServico> produtos, CalculoImposto calculoImposto, 
+                      CalculoISSQN calculoISSQN, DadosAdicionais dadosAdicionais) {
+        
+        this.dadosAdicionais = dadosAdicionais;
+        this.calculoISSQN = calculoISSQN;
+        this.calculoImposto = calculoImposto;
+        this.chaveAcesso = chaveAcesso;
+        this.numero = numero;
+        this.serie = serie;
+        this.dataEmissao = dataEmissao;
+        this.dataSaida = dataSaida;
+        this.protocolo = protocolo;
+        this.naturezaOperacao = naturezaOperacao;
+        this.produtos = produtos != null ? produtos : new ArrayList<>();
+    }
+
+    public String getChaveAcesso() {
+        return chaveAcesso;
+    }
+
+    public void setChaveAcesso(String chaveAcesso) {
+        this.chaveAcesso = chaveAcesso;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getSerie() {
+        return serie;
+    }
+
+    public void setSerie(String serie) {
+        this.serie = serie;
+    }
+
+    public String getDataEmissao() {
+        return dataEmissao;
+    }
+
+    public void setDataEmissao(String dataEmissao) {
+        this.dataEmissao = dataEmissao;
+    }
+
+    public String getDataSaida() {
+        return dataSaida;
+    }
+
+    public void setDataSaida(String dataSaida) {
+        this.dataSaida = dataSaida;
+    }
+
+    public String getProtocolo() {
+        return protocolo;
+    }
+
+    public void setProtocolo(String protocolo) {
+        this.protocolo = protocolo;
+    }
+
+    public String getNaturezaOperacao() {
+        return naturezaOperacao;
+    }
+
+    public void setNaturezaOperacao(String naturezaOperacao) {
+        this.naturezaOperacao = naturezaOperacao;
+    }
+}
+
+
