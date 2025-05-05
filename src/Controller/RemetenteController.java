@@ -50,6 +50,38 @@ public class RemetenteController {
         return listaRemetentes;
     }
     
+    public RemetenteModel alterarRemetente() {
+    RemetenteModel remetente = new RemetenteModel();
+
+    System.out.print("Razão Social: ");
+    remetente.setRazaoSocial(scanner.nextLine());
+
+    System.out.print("CNPJ: ");
+    remetente.setCnpj(scanner.nextLine());
+
+    System.out.print("Endereço: ");
+    remetente.setEndereco(scanner.nextLine());
+
+    System.out.print("Cidade: ");
+    remetente.setCidade(scanner.nextLine());
+
+    System.out.print("Estado: ");
+    remetente.setEstado(scanner.nextLine());
+
+    System.out.print("CEP: ");
+    remetente.setCep(scanner.nextLine());
+
+    System.out.print("Telefone: ");
+    remetente.setTelefone(scanner.nextLine());
+
+    System.out.print("Inscrição Estadual: ");
+    remetente.setInscricaoEstadual(scanner.nextLine());
+
+    System.out.println("Remetente alterado com sucesso!");
+
+    return remetente;
+}
+  
     public void exibirRemetentes() {
         if (listaRemetentes.isEmpty()) {
             System.out.println("Nenhum remetente cadastrado.");

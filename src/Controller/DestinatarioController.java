@@ -50,7 +50,7 @@ public class DestinatarioController {
         System.out.println("Destinatário cadastrado com sucesso!");
     }
     
-     public void alterarDestinatario(DanfeModel danfe) {
+    public DestinatarioModel alterarDestinatario() {
         DestinatarioModel destinatario = new DestinatarioModel();
 
         System.out.print("Razão Social: ");
@@ -80,9 +80,10 @@ public class DestinatarioController {
         System.out.print("Inscrição Estadual: ");
         destinatario.setInscricaoEstadual(scanner.nextLine());
 
-        listaDestinatarios.add(destinatario);
         System.out.println("Destinatário cadastrado com sucesso!");
-    }
+
+        return destinatario;
+}
 
     public ArrayList<DestinatarioModel> listarDestinatarios() {
         return listaDestinatarios;
