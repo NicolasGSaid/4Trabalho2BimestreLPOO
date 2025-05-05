@@ -8,6 +8,7 @@ import Model.DanfeModel;
 import Model.DestinatarioModel;
 import Model.ImpostoModel;
 import Model.RemetenteModel;
+import Model.TransporteModel;
 import java.util.Scanner;
 
 public class MenuAlterar implements MenuInterface {
@@ -31,11 +32,10 @@ public class MenuAlterar implements MenuInterface {
             System.out.println("\n----- Menu de Alterações -----");
             System.out.println("1. Alterar Destinatário de uma DANFE");
             System.out.println("2. Alterar Remetente de uma DANFE");
-            System.out.println("3. Alterar Fatura");
-            System.out.println("4. Alterar Cálculo do Imposto");
+            System.out.println("3. Alterar Cálculo do Imposto");
+            System.out.println("4. Alterar Impostos"); 
             System.out.println("5. Alterar Transportadora");
-            System.out.println("6. Alterar Impostos"); 
-            System.out.println("7. Voltar");
+            System.out.println("6. Voltar");
             opcaoSecundaria = scanner.nextInt();
             scanner.nextLine();
 
@@ -47,18 +47,15 @@ public class MenuAlterar implements MenuInterface {
                     alterarRemetente();
                     break;
                 case 3:
-                    System.out.println("Alteração de fatura ainda não implementada.");
+                    alterarCalculoImposto();
                     break;
                 case 4:
-                    alterarCalculoImposto(); 
+                    alterarImposto(); 
                     break;
                 case 5:
-                    System.out.println("Alteração de transportadora ainda não implementada.");
+                    alterarTransportadora();
                     break;
                 case 6:
-                    alterarImposto();
-                    break;
-                case 7:
                     System.out.println("Saindo do Menu de Alterações...");
                     break;
                 default:
@@ -165,4 +162,50 @@ public class MenuAlterar implements MenuInterface {
             System.out.println("Escolha inválida.");
         }
     }
+    
+    private void alterarTransportadora() {
+    System.out.println("Escolha a DANFE para alterar a transportadora:");
+    for (int i = 0; i < danfeController.getListaDanfes().size(); i++) {
+        System.out.println((i + 1) + ": " + danfeController.getListaDanfes().get(i).toString());
+    }
+
+    int escolhaDanfe = scanner.nextInt();
+    scanner.nextLine();
+
+    if (escolhaDanfe > 0 && escolhaDanfe <= danfeController.getListaDanfes().size()) {
+        DanfeModel danfeSelecionada = danfeController.getListaDanfes().get(escolhaDanfe - 1);
+
+        TransporteModel novoTransporte = new TransporteModel();
+        System.out.print("Digite a razão social da transportadora: ");
+        novoTransporte.setRazaoSocial(scanner.nextLine());
+
+        System.out.print("Digite o CNPJ ou CPF da transportadora: ");
+        novoTransporte.setCnpjCpf(scanner.nextLine());
+
+        System.out.print("Digite a inscrição estadual da transportadora: ");
+        novoTransporte.setInscricaoEstadual(scanner.nextLine());
+
+        System.out.print("Digite o endereço da transportadora: ");
+        novoTransporte.setEndereco(scanner.nextLine());
+
+        System.out.print("Digite o código ANTT: ");
+        novoTransporte.setCodigoAntt(scanner.nextLine());
+
+        System.out.print("Digite a placa do veículo: ");
+        novoTransporte.setPlaca(scanner.nextLine());
+
+        System.out.print("Digite a UF do veículo: ");
+        novoTransporte.setUf(scanner.nextLine());
+
+        System.out.print("Digite o frete por conta (0 - Emitente, 1 - Destinatário): ");
+        novoTransporte.setFretePorConta(scanner.nextLine());
+
+        danfeSelecionada.setTransporte(novoTransporte);
+
+        System.out.println("Transportadora atualizada com sucesso na DANFE!");
+    } else {
+        System.out.println("Escolha inválida.");
+    }
+}
+    
 }

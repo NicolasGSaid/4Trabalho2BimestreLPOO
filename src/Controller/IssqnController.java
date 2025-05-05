@@ -8,28 +8,23 @@ public class IssqnController implements InterfaceController {
 
     private ArrayList<IssqnModel> listaIssqn = new ArrayList<>();
 
-    public void incluirIssqn() {
+     public IssqnModel incluirIssqn() {
         IssqnModel issqn = new IssqnModel();
-
-        System.out.print("Digite a inscrição municipal: ");
+        
+        System.out.println("Inscrição municipal");
         issqn.setInscricaoMunicipal(scanner.nextLine());
-
-        System.out.print("Digite o valor total do serviço: ");
-        issqn.setValorTotalServico(Double.parseDouble(scanner.nextLine()));
-
-        System.out.print("Digite a base de cálculo do ISSQN: ");
+        
+        System.out.print("Base de Cálculo do ISSQN: ");
         issqn.setBaseCalculoIssqn(Double.parseDouble(scanner.nextLine()));
 
-        System.out.print("Digite o valor do ISSQN: ");
+        System.out.print("Valor total do serviço: ");
+        issqn.setValorTotalServico(Double.parseDouble(scanner.nextLine()));
+
+        System.out.print(" Valor do ISSQN: ");
         issqn.setValorIssqn(Double.parseDouble(scanner.nextLine()));
 
-        listaIssqn.add(issqn);
         System.out.println("ISSQN cadastrado com sucesso!");
-    }
-
-    public void incluir(IssqnModel issqn) {
-        listaIssqn.add(issqn);
-        System.out.println("ISSQN cadastrado com sucesso!");
+        return issqn;
     }
 
     public void alterar() {

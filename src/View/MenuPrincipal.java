@@ -43,14 +43,17 @@ public class MenuPrincipal implements MenuInterface {
                     danfeController.incluirNfe();
                     break;
                 case 2:
-                    MenuAlterar menuAlterar = new MenuAlterar(controller, impostoController); // Updated constructor to match fixed MenuAlterar
+                    MenuAlterar menuAlterar = new MenuAlterar(controller, impostoController); 
                     menuAlterar.executarMenuAlterar();                    
                     break;
                 case 3:
-                    System.out.println("Funcionalidade de exclusão ainda não implementada.");
+                    System.out.println("Digite o número da NF-E que deseja excluir:");
+                    String numeroDanfe = scanner.nextLine();
+                    controller.excluirDanfePorNumero(numeroDanfe);
                     break;
                 case 4:
-                    System.out.println("Funcionalidade de consulta ainda não implementada.");
+                    MenuConsulta menuConsulta = new MenuConsulta(controller);
+                    menuConsulta.executarMenuConsulta();
                     break;
                 case 5:
                     controller.exibirDanfes();

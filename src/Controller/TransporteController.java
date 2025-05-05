@@ -10,7 +10,7 @@ public class TransporteController {
     private final ArrayList<TransporteModel> listaTransportes = new ArrayList<>();
     private final Scanner scanner = new Scanner(System.in);
 
-    public void incluirTransporte() {
+   public TransporteModel incluirTransporte() {
         TransporteModel transporte = new TransporteModel();
 
         System.out.print("Razão Social: ");
@@ -37,29 +37,8 @@ public class TransporteController {
         System.out.print("Endereço: ");
         transporte.setEndereco(scanner.nextLine());
 
-        System.out.print("Município: ");
-        transporte.setMunicipio(scanner.nextLine());
-
-        System.out.print("Quantidade: ");
-        transporte.setQuantidade(scanner.nextLine());
-
-        System.out.print("Espécie: ");
-        transporte.setEspecie(scanner.nextLine());
-
-        System.out.print("Marca: ");
-        transporte.setMarca(scanner.nextLine());
-
-        System.out.print("Tonelagem: ");
-        transporte.setTonelagem(Double.parseDouble(scanner.nextLine()));
-
-        System.out.print("Peso Bruto: ");
-        transporte.setPesoBruto(Double.parseDouble(scanner.nextLine()));
-
-        System.out.print("Peso Líquido: ");
-        transporte.setPesoLiquido(Double.parseDouble(scanner.nextLine()));
-
-        listaTransportes.add(transporte);
         System.out.println("Transporte cadastrado com sucesso!");
+        return transporte;
     }
 
     public void incluir(TransporteModel transporte) {

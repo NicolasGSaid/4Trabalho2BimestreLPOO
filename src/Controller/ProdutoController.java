@@ -9,61 +9,54 @@ public class ProdutoController implements InterfaceController{
     
    private ArrayList<ProdutoModel> produtos = new ArrayList<>();
         
-   public void IncluirProduto(){
-       
-        System.out.print("Digite o código do produto: ");
-        String codigo = scanner.nextLine();
-        ProdutoModel produto = new ProdutoModel();
-        produto.setCodigo(codigo);
-       
-        System.out.println("Digite a descrição do produto: ");
-        String descricao = scanner.nextLine();
-        produto.setDescricao(descricao);
-       
-        System.out.println("Digite a NCSH: ");
-        String ncsg = scanner.nextLine();
-        produto.setNcsh(ncsg);
-       
-        System.out.println("Digite o CST: ");
-        String cst = scanner.nextLine();
-        produto.setCst(cst);
-        System.out.println("Digite o CFOP: ");
-        String cfop = scanner.nextLine();
-        produto.setCfop(cfop);
+    public ArrayList<ProdutoModel> incluirProdutos() {
+        ArrayList<ProdutoModel> produtos = new ArrayList<>();
 
-        System.out.println("Digite a unidade: ");
-        String unidade = scanner.nextLine();
-        produto.setUnidade(unidade);
+        System.out.println("Incluindo produtos para a NF-e:");
+        boolean adicionarMais = true;
 
-        System.out.println("Digite a quantidade: ");
-        double quantidade = Double.parseDouble(scanner.nextLine());
-        produto.setQuantidade(quantidade);
+        while (adicionarMais) {
+            ProdutoModel produto = new ProdutoModel();
 
-        System.out.println("Digite o valor unitário: ");
-        double valorUnitario = Double.parseDouble(scanner.nextLine());
-        produto.setValorUnitario(valorUnitario);
+            System.out.print("Código do Produto: ");
+            produto.setCodigo(scanner.nextLine());
 
-        System.out.println("Digite o valor total: ");
-        double valorTotal = Double.parseDouble(scanner.nextLine());
-        produto.setValorTotal(valorTotal);
+            System.out.print("Descrição do Produto: ");
+            produto.setDescricao(scanner.nextLine());
 
-        System.out.println("Digite a base de cálculo do ICMS: ");
-        double baseCalIcms = Double.parseDouble(scanner.nextLine());
-        produto.setBaseCalIcms(baseCalIcms);
+            System.out.print("Quantidade: ");
+            produto.setQuantidade(Double.parseDouble(scanner.nextLine()));
+            
+            System.out.print("Nova unidade: ");
+            produto.setUnidade(scanner.nextLine());
 
-        System.out.println("Digite o valor do IPI: ");
-        double valorIpi = Double.parseDouble(scanner.nextLine());
-        produto.setValorIpi(valorIpi);
+            System.out.print("Valor Unitário: ");
+            produto.setValorUnitario(Double.parseDouble(scanner.nextLine()));
 
-        System.out.println("Digite a alíquota do ICMS: ");
-        double alicotaIcms = Double.parseDouble(scanner.nextLine());
-        produto.setAlicotaIcms(alicotaIcms);
+            System.out.print("Valor Total: ");
+            produto.setValorTotal(Double.parseDouble(scanner.nextLine()));
+            
+            System.out.print("Nova base de cálculo do ICMS: ");
+            produto.setBaseCalIcms(Double.valueOf(scanner.nextLine()));
 
-        System.out.println("Digite a alíquota do IPI: ");
-        double alicotaIpi = Double.parseDouble(scanner.nextLine());
-        produto.setAlicotaIpi(alicotaIpi);
-        
-        produtos.add(produto);
+            System.out.print("Novo valor do IPI: ");
+            produto.setValorIpi(Double.valueOf(scanner.nextLine()));
+
+            System.out.print("Nova alíquota do ICMS: ");
+            produto.setAlicotaIcms(Double.valueOf(scanner.nextLine()));
+
+            System.out.print("Nova alíquota do IPI: ");
+            produto.setAlicotaIpi(Double.valueOf(scanner.nextLine()));
+
+            produtos.add(produto);
+
+            System.out.print("Deseja adicionar outro produto? (s/n): ");
+            String resposta = scanner.nextLine();
+            adicionarMais = resposta.equalsIgnoreCase("s");
+        }
+
+        System.out.println("Produtos adicionados com sucesso!");
+        return produtos;
     }
    
     public void incluir(ProdutoModel produto) {

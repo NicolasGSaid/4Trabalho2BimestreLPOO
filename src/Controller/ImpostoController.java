@@ -9,7 +9,7 @@ public class ImpostoController implements InterfaceController {
 
     private final ArrayList<ImpostoModel> listaImpostos = new ArrayList<>();
 
-    public void incluirImposto() {
+    public ImpostoModel incluirImposto() {
         ImpostoModel imposto = new ImpostoModel();
 
         System.out.print("Digite a base de cálculo do ICMS: ");
@@ -50,6 +50,7 @@ public class ImpostoController implements InterfaceController {
 
         listaImpostos.add(imposto);
         System.out.println("Imposto cadastrado com sucesso!");
+        return imposto;
     }
 
     public void incluir(ImpostoModel imposto) {

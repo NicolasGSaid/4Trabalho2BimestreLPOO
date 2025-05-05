@@ -22,6 +22,57 @@ public class DanfeController {
     private final IssqnController issqnController = new IssqnController();
     private final ImpostoController impostoController = new ImpostoController();
 
+    public DanfeModel consultarPorNumero(String numero) {
+        for (DanfeModel danfe : listaDanfes) {
+            if (danfe.getNumero().equals(numero)) {
+                return danfe;
+            }
+        }
+        System.out.println("NF-e com número " + numero + " não encontrada.");
+        return null;
+    }
+
+    // Consulta pela razão social do cliente
+    public ArrayList<DanfeModel> consultarPorRazaoSocial(String razaoSocial) {
+        ArrayList<DanfeModel> resultados = new ArrayList<>();
+        for (DanfeModel danfe : listaDanfes) {
+            if (danfe.getDestinatario().getRazaoSocial().equalsIgnoreCase(razaoSocial)) {
+                resultados.add(danfe);
+            }
+        }
+        if (resultados.isEmpty()) {
+            System.out.println("Nenhuma NF-e encontrada para a razão social: " + razaoSocial);
+        }
+        return resultados;
+    }
+
+
+    public ArrayList<DanfeModel> consultarPorCnpjCpf(String cnpjCpf) {
+        ArrayList<DanfeModel> resultados = new ArrayList<>();
+        for (DanfeModel danfe : listaDanfes) {
+            if (danfe.getDestinatario().getCnpjCpf().equals(cnpjCpf)) {
+                resultados.add(danfe);
+            }
+        }
+        if (resultados.isEmpty()) {
+            System.out.println("Nenhuma NF-e encontrada para o CNPJ/CPF: " + cnpjCpf);
+        }
+        return resultados;
+    }
+    
+    public ArrayList<DanfeModel> consultarPorValorTotal(double valorTotal) {
+    ArrayList<DanfeModel> resultados = new ArrayList<>();
+    for (DanfeModel danfe : listaDanfes) {
+        if (danfe.getImposto() != null && danfe.getImposto().getValorTotalNota() == valorTotal) {
+            resultados.add(danfe);
+        }
+    }
+    if (resultados.isEmpty()) {
+        System.out.println("Nenhuma NF-e encontrada com o valor total: " + valorTotal);
+    }
+    return resultados;
+}
+      
     public void incluirNfe() {
         DanfeModel novaDanfe = new DanfeModel();
 
@@ -104,7 +155,24 @@ public class DanfeController {
     public ArrayList<DanfeModel> getListaDanfes() {
         return listaDanfes;
     }
-
+    
+    public void excluirDanfePorNumero(String numero) {
+    boolean danfeRemovida = false;
+    for (int i = 0; i < listaDanfes.size(); i++) {
+        if (listaDanfes.get(i).getNumero().equals(numero)) {
+            listaDanfes.remove(i);
+            danfeRemovida = true;
+            System.out.println("DANFE com número " + numero + " foi removida com sucesso.");
+            break;
+        }
+    }
+    if (!danfeRemovida) {
+        System.out.println("DANFE com número " + numero + " não encontrada.");
+    }
+}
+    
+    
+    
     public void exibirDanfes() {
         if (listaDanfes.isEmpty()) {
             System.out.println("Nenhuma DANFE cadastrada.");
