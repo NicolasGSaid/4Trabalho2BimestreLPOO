@@ -21,5 +21,25 @@ public class DanfeController {
                 System.out.println("********************************************\n");
             }
         }
-    }  
+    }
+    
+    public void listarDanfes() {
+        if (listaDanfes.isEmpty()) {
+            System.out.println("Nenhuma DANFE cadastrada.");
+        } else {
+            System.out.println("\nLista de DANFEs:");
+            for (int i = 0; i < listaDanfes.size(); i++) {
+                System.out.println((i + 1) + ". " + listaDanfes.get(i));
+            }
+        }
+    }
+
+ 
+    public void adicionarDanfe(DanfeModel danfe) {
+        listaDanfes.add(danfe);
+    }
+
+    public ArrayList<DanfeModel> getListaDanfes() {
+        return listaDanfes;
+    } 
 }
