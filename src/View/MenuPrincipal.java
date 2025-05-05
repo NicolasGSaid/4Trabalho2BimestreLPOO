@@ -39,7 +39,8 @@ public class MenuPrincipal implements MenuInterface {
             opcao = menuPrincipal();
             switch (opcao){
                 case 1:
-                    System.out.println("Funcionalidade de inclusão ainda não implementada.");
+                    DanfeController danfeController = new DanfeController();
+                    danfeController.incluirNfe();
                     break;
                 case 2:
                     MenuAlterar menuAlterar = new MenuAlterar(controller, impostoController); // Updated constructor to match fixed MenuAlterar
