@@ -7,7 +7,9 @@ import java.util.Locale;
 
 public class ImpostoFaker {
 
-    public ImpostoModel gerarImpostoFake() {
+    public static ImpostoModel gerarImpostoFake() {
+        
+        
         Faker faker = new Faker(new Locale("pt-BR"));
 
       

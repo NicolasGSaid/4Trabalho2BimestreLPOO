@@ -54,4 +54,17 @@ public class IssqnController implements InterfaceController {
 
         System.out.println("Inscrição municipal não encontrada.");
     }
+    
+    public void exibirIssqn() {
+        if (listaIssqn.isEmpty()) {
+            System.out.println("Nenhum ISSQN cadastrado.");
+        } else {
+            for (IssqnModel i : listaIssqn) {
+                System.out.println("\n********************************************");
+                System.out.println("ISSQN: ");
+                System.out.println(i);  // Agora formatado de forma legível
+                System.out.println("********************************************\n");
+            }
+        }
+    }
 }

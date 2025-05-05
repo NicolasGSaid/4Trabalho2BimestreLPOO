@@ -104,4 +104,17 @@ public class ImpostoController implements InterfaceController {
             System.out.println("Índice inválido.");
         }
     }
+    
+    public void exibirImpostos() {
+        if (listaImpostos.isEmpty()) {
+            System.out.println("Nenhum imposto cadastrado.");
+        } else {
+            for (ImpostoModel imposto : listaImpostos) {
+                System.out.println("\n********************************************");
+                System.out.println("\nImposto: ");
+                System.out.println(imposto);  // Exibe o Imposto com o formato ajustado do toString()
+                System.out.println("********************************************\n");
+            }
+        }
+    }
 }

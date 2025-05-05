@@ -66,4 +66,17 @@ public class TransporteController {
         listaTransportes.add(transporte);
         System.out.println("Transporte cadastrado com sucesso!");
     }
+    
+    public void exibirTransportes() {
+        if (listaTransportes.isEmpty()) {
+            System.out.println("Nenhum transporte cadastrado.");
+        } else {
+            for (TransporteModel t : listaTransportes) {
+                System.out.println("\n********************************************");
+                System.out.println("TRANSPORTE:");
+                System.out.println(t);  // Agora formatado com legibilidade
+                System.out.println("********************************************\n");
+            }
+        }
+    }
 }

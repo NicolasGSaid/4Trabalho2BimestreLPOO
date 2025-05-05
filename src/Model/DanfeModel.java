@@ -202,5 +202,30 @@ public class DanfeModel {
 
     public void setProdutos(List<ProdutoModel> produtos) {
         this.produtos = produtos;
-    }  
+    }
+    
+    @Override
+    public String toString() {
+    return """          
+             Numero: """ + numero + "\n" +
+            "  Serie: " + serie + "\n" +
+            "  Folha: " + folha + "\n" +
+            "  Data Emissão: " + dataEmissao + "\n" +
+            "  Data Entrada: " + dataEntrada + "\n" +
+            "  Data Saída: " + dataSaida + "\n" +
+            "  Hora Saída: " + horaSaida + "\n" +
+            "  Tipo Operação: " + tipoOperacao + "\n" +
+            "  Natureza Operação: " + naturezaOperacao + "\n" +
+            "  Protocolo: " + protocolo + "\n" +
+            "  Chave Acesso: " + chaveAcesso + "\n" +
+            "  Informações Complementares: " + informacoesComplementares + "\n" +
+            "  Observações: " + observacoes + "\n" +
+            "  Destinatário: \n" + destinatario + "\n" +
+            "  Remetente: \n" + remetente + "\n" +
+            "  Transporte: \n" + transporte + "\n" +
+            "  Imposto: " + imposto + "\n" +
+            "  Issqn: " + issqn + "\n" +
+            "  Produtos: " + produtos + "\n" +
+            "}";
+    }
 }

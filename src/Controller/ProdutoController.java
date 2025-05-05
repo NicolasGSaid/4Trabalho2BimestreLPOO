@@ -123,5 +123,18 @@ public class ProdutoController implements InterfaceController{
 
         System.out.println("Produto com código não encontrado.");
     }
+    
+    public void exibirProdutos() {
+        if (produtos.isEmpty()) {
+            System.out.println("Nenhum produto cadastrado.");
+        } else {
+            for (ProdutoModel p : produtos) {
+                System.out.println("\n********************************************");
+                System.out.println("PRODUTO: ");
+                System.out.println(p);  // Usa o toString agora formatado
+                System.out.println("********************************************\n");
+            }
+        }
+    }
 }
 

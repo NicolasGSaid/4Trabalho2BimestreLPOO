@@ -160,5 +160,24 @@ public class TransporteModel {
         this.pesoLiquido = pesoLiquido;
     }
     
-    
+    @Override
+    public String toString() {
+        return """
+             Razão Social: """ + razaoSocial + "\n" +
+           "  Frete por Conta: " + fretePorConta + "\n" +
+           "  Código ANTT: " + codigoAntt + "\n" +
+           "  Placa: " + placa + "\n" +
+           "  UF: " + uf + "\n" +
+           "  CNPJ/CPF: " + cnpjCpf + "\n" +
+           "  Inscrição Estadual: " + inscricaoEstadual + "\n" +
+           "  Endereço: " + endereco + "\n" +
+           "  Município: " + municipio + "\n" +
+           "  Quantidade: " + quantidade + "\n" +
+           "  Espécie: " + especie + "\n" +
+           "  Marca: " + marca + "\n" +
+           "  Tonelagem: " + tonelagem + "\n" +
+           "  Peso Bruto: " + pesoBruto + "\n" +
+           "  Peso Líquido: " + pesoLiquido + "\n" 
+           ;
+    }
 }

@@ -25,6 +25,26 @@ public class ProdutoModel {
         this.alicotaIcms = alicotaIcms;
         this.alicotaIpi = alicotaIpi;
     }
+    
+    @Override
+    public String toString() {
+        return """
+             Código: """ + codigo + "\n" +
+            "  Descrição: " + descricao + "\n" +
+            "  NCM/SH: " + ncsh + "\n" +
+            "  CST: " + cst + "\n" +
+            "  CFOP: " + cfop + "\n" +
+            "  Unidade: " + unidade + "\n" +
+            "  Quantidade: " + quantidade + "\n" +
+            "  Valor Unitário: " + valorUnitario + "\n" +
+            "  Valor Total: " + valorTotal + "\n" +
+            "  Base de Cálculo ICMS: " + baseCalIcms + "\n" +
+            "  Valor IPI: " + valorIpi + "\n" +
+            "  Alíquota ICMS: " + alicotaIcms + "\n" +
+            "  Alíquota IPI: " + alicotaIpi + "\n" 
+            ;
+    }
+
 
     public String getCodigo() {
         return codigo;

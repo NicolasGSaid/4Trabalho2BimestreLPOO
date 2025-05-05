@@ -26,7 +26,22 @@ public class DestinatarioModel {
         this.telefone = telefone;
         this.inscricaoEstadual = inscricaoEstadual;
     }
-
+    
+    @Override
+    public String toString() {
+        return """
+             Razão Social: """ + razaoSocial + "\n" +
+            "  CNPJ/CPF: " + cnpjCpf + "\n" +
+            "  Endereço: " + endereco + "\n" +
+            "  Bairro/Distrito: " + bairroDistrito + "\n" +
+            "  CEP: " + cep + "\n" +
+            "  Município: " + municipio + "\n" +
+            "  UF: " + uf + "\n" +
+            "  Telefone: " + telefone + "\n" +
+            "  Inscrição Estadual: " + inscricaoEstadual + "\n" 
+            ; 
+    }
+    
     public String getRazaoSocial() {
         return razaoSocial;
     }

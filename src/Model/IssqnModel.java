@@ -15,6 +15,17 @@ public class IssqnModel {
         this.baseCalculoIssqn = baseCalculoIssqn;
         this.valorIssqn = valorIssqn;
     }
+    
+    @Override
+    public String toString() {
+        return """
+
+             Inscrição Municipal: """ + inscricaoMunicipal + "\n" +
+            "  Valor Total Serviço: " + valorTotalServico + "\n" +
+            "  Base Cálculo ISSQN: " + baseCalculoIssqn + "\n" +
+            "  Valor ISSQN: " + valorIssqn + "\n" 
+            ;
+    }
 
     public String getInscricaoMunicipal() {
         return inscricaoMunicipal;
@@ -46,10 +57,5 @@ public class IssqnModel {
 
     public void setValorIssqn(double valorIssqn) {
         this.valorIssqn = valorIssqn;
-    }
-    
-    
-    
-    
-    
+    }    
 }

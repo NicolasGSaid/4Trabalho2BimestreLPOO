@@ -90,5 +90,17 @@ public class RemetenteModel {
         this.telefone = telefone;
     }
     
-    
+    @Override
+    public String toString() {
+        return """
+             Inscrição Estadual: """ + inscricaoEstadual + "\n" +
+            "  CNPJ: " + cnpj + "\n" +
+            "  Razão Social: " + razaoSocial + "\n" +
+            "  Endereço: " + endereco + "\n" +
+            "  Cidade: " + cidade + "\n" +
+            "  Estado: " + estado + "\n" +
+            "  CEP: " + cep + "\n" +
+            "  Telefone: " + telefone + "\n" 
+            ;
+    }
 }

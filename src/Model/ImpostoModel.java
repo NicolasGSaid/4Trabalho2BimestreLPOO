@@ -30,6 +30,24 @@ public class ImpostoModel {
         this.valorTotalNota = valorTotalNota;
     }
 
+    @Override
+    public String toString() {
+        return """ 
+               Base de Cálculo ICMS: """ + baseCalculoIcms + "\n" +
+            "  Valor ICMS: " + valorIcms + "\n" +
+            "  Base de Cálculo Substituição: " + baseCalculoSubstituicao + "\n" +
+            "  Valor Substituição: " + valorSubstituicao + "\n" +
+            "  Valor Total Produtos: " + valorTotalProdutos + "\n" +
+            "  Valor Frete: " + valorFrete + "\n" +
+            "  Valor Seguro: " + valorSeguro + "\n" +
+            "  Desconto: " + desconto + "\n" +
+            "  Outras Despesas: " + outrasDespesas + "\n" +
+            "  Valor IPI: " + valorIpi + "\n" +
+            "  Valor Total Impostos: " + valorTotalImpostos + "\n" +
+            "  Valor Total Nota: " + valorTotalNota + "\n" 
+            ; 
+    }
+    
     public ImpostoModel() {
     }
 

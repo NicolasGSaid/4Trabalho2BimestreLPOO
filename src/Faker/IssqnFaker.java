@@ -6,7 +6,7 @@ import java.util.Locale;
 
 public class IssqnFaker {
 
-    public IssqnModel adicionarIssqnFake() {
+    public static IssqnModel gerarIssqnFake() {
         Faker faker = new Faker(new Locale("pt-BR"));
 
         IssqnModel issqn = new IssqnModel();

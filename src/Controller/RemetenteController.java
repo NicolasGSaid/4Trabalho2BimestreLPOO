@@ -49,4 +49,17 @@ public class RemetenteController {
     public ArrayList<RemetenteModel> listarRemetentes() {
         return listaRemetentes;
     }
+    
+    public void exibirRemetentes() {
+        if (listaRemetentes.isEmpty()) {
+            System.out.println("Nenhum remetente cadastrado.");
+        } else {
+            for (RemetenteModel r : listaRemetentes) {
+                System.out.println("\n********************************************");
+                System.out.println("REMETENTE:");
+                System.out.println(r);  // Agora formatado como o DanfeModel
+                System.out.println("********************************************\n");
+            }
+        }
+    }
 }
