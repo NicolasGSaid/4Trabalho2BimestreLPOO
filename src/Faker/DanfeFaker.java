@@ -11,11 +11,17 @@ import static Faker.ImpostoFaker.gerarImpostoFake;
 import static Faker.IssqnFaker.gerarIssqnFake;
 import static Faker.RemetenteFaker.gerarRemetenteFake;
 import static Faker.TransporteFaker.gerarTransporteFake;
+import com.github.javafaker.Faker;
+import java.math.BigInteger;
+import java.time.ZoneId;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 
 public class DanfeFaker {
 
-    private static final Random random = new Random();
+    private static final Faker faker = new Faker(new Locale("pt-BR"));
+
     
     DestinatarioFaker gerarDestinatarioFake = new DestinatarioFaker();
     RemetenteFaker gerarRemetenteFake = new RemetenteFaker();
@@ -26,28 +32,37 @@ public class DanfeFaker {
     
 
     public static DanfeModel gerarDanfeFaker() {
-        DanfeModel danfe = new DanfeModel();
-        danfe.setNumero(String.valueOf(random.nextInt(1000000)));
-        danfe.setSerie(String.valueOf(random.nextInt(1000)));
-        danfe.setFolha(String.valueOf(random.nextInt(10)));
-        danfe.setDataEmissao(new Date());
-        danfe.setDataEntrada(new Date());
-        danfe.setDataSaida(new Date());
-        danfe.setHoraSaida("12:00");
-        danfe.setTipoOperacao(random.nextBoolean() ? "0" : "1");
-        danfe.setNaturezaOperacao("Venda");
-        danfe.setProtocolo(String.valueOf(random.nextInt(1000000)));
-        danfe.setChaveAcesso(String.format("%040d", random.nextLong()));
-        danfe.setInformacoesComplementares("Informações complementares de teste.");
-        danfe.setObservacoes("Observações de teste.");
-        danfe.setProdutos(gerarProdutosFaker());
-        danfe.setDestinatario(gerarDestinatarioFake());
-        danfe.setRemetente(gerarRemetenteFake());
-        danfe.setImposto(gerarImpostoFake());
-        danfe.setTransporte(gerarTransporteFake());
-        danfe.setIssqn(gerarIssqnFake());
         
-        return danfe;
+    DanfeModel danfe = new DanfeModel();
+    
+    danfe.setNumero(String.valueOf(faker.number().numberBetween(1000, 9999)));
+    danfe.setSerie(String.valueOf(faker.number().numberBetween(1, 999)));
+    danfe.setFolha(String.valueOf(faker.number().numberBetween(1, 10)));
+    
+    danfe.setDataEmissao(faker.date().past(10, TimeUnit.DAYS));
+    danfe.setDataEntrada(faker.date().past(5, TimeUnit.DAYS));
+    danfe.setDataSaida(new Date());  
+    
+    danfe.setHoraSaida(faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).toLocalTime().toString());
+    
+    danfe.setTipoOperacao(faker.bool().bool() ? "0" : "1");
+    danfe.setNaturezaOperacao("Venda");  
+    
+    danfe.setProtocolo(String.valueOf(faker.number().numberBetween(100000, 999999)));
+    
+    danfe.setChaveAcesso(String.format("%040d", new BigInteger(faker.number().digits(40))));  // Formata chave com 40 dígitos
+    
+    danfe.setInformacoesComplementares(faker.lorem().sentence());
+    danfe.setObservacoes(faker.lorem().sentence());
+
+    danfe.setProdutos(gerarProdutosFaker());
+    danfe.setDestinatario(gerarDestinatarioFake());
+    danfe.setRemetente(gerarRemetenteFake());
+    danfe.setImposto(gerarImpostoFake());
+    danfe.setTransporte(gerarTransporteFake());
+    danfe.setIssqn(gerarIssqnFake());
+    
+    return danfe;
     }
 
     private static List<ProdutoModel> gerarProdutosFaker() {

@@ -5,14 +5,10 @@ import com.github.javafaker.Faker;
 
 import java.util.Locale;
 
-public class ImpostoFaker {
+public class ImpostoFaker implements InterfaceFaker {
 
     public static ImpostoModel gerarImpostoFake() {
-        
-        
-        Faker faker = new Faker(new Locale("pt-BR"));
 
-      
         double valorProdutos = faker.number().randomDouble(2, 500, 5000);
         double valorFrete = faker.number().randomDouble(2, 50, 300);
         double valorSeguro = faker.number().randomDouble(2, 20, 150);
@@ -20,7 +16,6 @@ public class ImpostoFaker {
         double outrasDespesas = faker.number().randomDouble(2, 10, 100);
         double valorIpi = faker.number().randomDouble(2, 30, 300);
 
-        
         double percentualBaseIcms = 0.7 + (0.3 * faker.random().nextDouble()); // 70% a 100%
         double aliquotaIcms = 0.12 + (0.06 * faker.random().nextDouble());     // 12% a 18%
 
